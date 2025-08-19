@@ -163,11 +163,16 @@ export const verifyEmail = async (req, res) => {
 // Check if user is authenticated
 export const isAuthenticated = async (req, res) => {
     try {
-        return res.json({ success: true, message: "Authenticated" })
+        return res.json({
+            success: true,
+            message: "Authenticated",
+            userId: req.body.userId
+        });
     } catch (error) {
-        return res.json({ success: false, message: error.message })
+        return res.json({ success: false, message: error.message });
     }
-}
+};
+
 
 export const sendResetOtp = async (req, res) => {
     const { email } = req.body;
