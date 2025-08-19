@@ -12,19 +12,25 @@ connectDB();
 
 const allowedOrigins = ['https://mern-auth-chi-dun.vercel.app']
 
-app.use(express.json());
-app.use(cookieParser());
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: allowedOrigins,
     credentials: true,
 }));
 
+app.use((req, res, next) => {
+    console.log("Incoming Origin:", req.headers.origin);
+    next();
+});
+
+// Handle preflight requests explicitly
+app.options("*", cors({
+    origin: allowedOrigins,
+    credentials: true,
+}));
+
+
+app.use(express.json());
+app.use(cookieParser());
 
 // API Endpoints
 app.get('/', (req, res) => res.send("API WORKING!"));
