@@ -1,0 +1,20 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import EmailVerify from "./pages/VerifyEmail";
+import ResetPassword from "./pages/ResetPassword";
+import { Toaster } from "sonner";
+
+const App = () => {
+	return (
+		<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/login" element={<Login />} />
+			<Route path="/email-verify" element={<EmailVerify />} />
+			<Route path="/reset-password" element={<ResetPassword />} />
+		</Routes>
+	);
+};
+
+export default App;
