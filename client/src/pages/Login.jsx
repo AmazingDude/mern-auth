@@ -55,7 +55,7 @@ const Login = () => {
 	};
 
 	return (
-		<section className="flex items-center justify-center min-h-screen px-6 sm:px-0 bg-gradient-to-br from-blue-200 to-purple-400">
+		<section className="flex items-center justify-center min-h-screen px-6 sm:px-0 ">
 			<img
 				src={assets.logo}
 				alt=""
@@ -112,7 +112,7 @@ const Login = () => {
 					>
 						Forgot Password?
 					</p>
-					<button className="w-full py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-900 text-white font-medium">
+					<button className="w-full py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-indigo-900 text-white font-medium cursor-pointer">
 						{state}
 					</button>
 				</form>
